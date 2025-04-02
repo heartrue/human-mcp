@@ -8,7 +8,12 @@ mcp = FastMCP("Human MCP")
 
 @mcp.tool()
 def ask_human(ask) -> str:
-    """问人类"""
+    """
+    询问人类以获取问题的答案。
+    
+    此函数通过图形用户界面向用户展示问题，并等待用户输入答案。
+    当 AI 的条件不足以提供可靠的答案时，调用此函数以确保人类能够验证或补充 AI 的理解。
+    """
     answer = None
     
     def submit():
@@ -30,7 +35,7 @@ def ask_human(ask) -> str:
     text.pack(pady=10)
     
     # 提交按钮
-    submit_btn = ttk.Button(root, text="提交", command=submit)
+    submit_btn = ttk.Button(root, text="回答", command=submit)
     submit_btn.pack(pady=10)
     
     root.mainloop()
